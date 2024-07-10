@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>parties</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="party : ${allParties}">
+        <td th:text="${party.name}"></td>
+        <td th:text="${party.description}"></td>
+    </tr>
+</table>
+</body>
+</html>

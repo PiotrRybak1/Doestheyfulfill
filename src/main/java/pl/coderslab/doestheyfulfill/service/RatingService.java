@@ -16,7 +16,7 @@ public class RatingService {
     public void add(Rating rating){
         ratingRepository.save(rating);
     }
-    public List<Rating> getPoliticians() {
+    public List<Rating> getRatings() {
         return ratingRepository.findAll();
     }
 

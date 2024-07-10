@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+    <title>editPromise</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<form th:action="@{/promise/edit}" th:object="${promiseForEdit}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <label for="titleOfPromise">Title of Promise</label>
+    <input type="text" th:field="*{titleOfPromise}" id="titleOfPromise" required="required"/>
+    <label for="descriptionOfThePromise">Last Name</label>
+    <textarea  th:field="*{descriptionOfThePromise}" id="descriptionOfThePromise" required="required"></textarea>
+    <label for="dateOfThePromise">Day of Birth</label>
+    <input type="date" th:field="*{dateOfThePromise}" id="dateOfThePromise" required="required"/>
+    <select th:field="*{promiseStatus.id}" id="promiseStatus" required="required">
+        <option th:each="status : ${promiseStatusModel}" th:value="${status.id}" th:text="${status.name}"></option>
+    </select>
+    <div th:if="${#fields.hasErrors('promiseStatus')}" th:errors="*{promiseStatus}" class="error"></div>
+
+    <label for="politician">Politician</label>
+    <select th:field="*{politician.id}" id="politician" required="required">
+        <option th:each="polit : ${politicianModel}" th:value="${polit.id}" th:text="${polit.fullName()}"></option>
+    </select>
+    <div th:if="${#fields.hasErrors('politician')}" th:errors="*{politician}" class="error"></div>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

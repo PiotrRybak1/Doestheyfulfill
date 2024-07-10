@@ -21,14 +21,13 @@ public class PoliticalParty {
     private String name;
     @Size(max = 600)
     private String description;
-    private LocalDate creationDate;
     @OneToMany(mappedBy = "party")
     @ToString.Exclude
     private Set<Politician> politician;
 
-    public PoliticalParty(String name, String description, int year, int month, int day) {
+    public PoliticalParty(String name, String description) {
         this.name = name;
         this.description = description;
-        this.creationDate = LocalDate.of(year, month, day);
+
     }
 }

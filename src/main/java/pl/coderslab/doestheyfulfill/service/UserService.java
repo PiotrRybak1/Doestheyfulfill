@@ -2,9 +2,7 @@ package pl.coderslab.doestheyfulfill.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.coderslab.doestheyfulfill.domain.PoliticalParty;
 import pl.coderslab.doestheyfulfill.domain.User;
-import pl.coderslab.doestheyfulfill.repository.PoliticalPartyRepository;
 import pl.coderslab.doestheyfulfill.repository.UserRepository;
 
 import java.util.List;

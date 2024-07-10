@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +24,7 @@ public class Politician {
   private String firstName;
   @Size(max = 256)
   private String lastName;
-  private LocalDate dayOfBirth;
+  private Date dayOfBirth;
   @Size(max = 256)
   private String position;
 
@@ -35,11 +36,13 @@ public class Politician {
   @ToString.Exclude
   private Set<Promise> promises = new HashSet<>();
 
-  public Politician(String firstName, String lastName, int year, int month, int day, String position, PoliticalParty party) {
+  public Politician(String firstName, String lastName, String position, PoliticalParty party) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.dayOfBirth = LocalDate.of(year,month,day);
     this.position = position;
     this.party = party;
+  }
+  public String fullName(){
+    return firstName + " " + lastName;
   }
 }

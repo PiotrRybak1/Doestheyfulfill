@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PoliticalPartyEdit</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<form th:action="@{/politicalParty/edit}" th:object="${partyToEdit}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" required="required"/>
+    <label for="description">Description</label>
+    <textarea th:field="*{description}" id="description" required="required"></textarea>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

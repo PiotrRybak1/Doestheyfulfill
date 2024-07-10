@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>PoliticalParty Form</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+<form th:action="@{/politician/add}" th:object="${politicianAdd}" method="post">
+  <label for="firstName">First Name</label>
+  <input type="text" th:field="*{firstName}" id="firstName" required="required"/>
+  <label for="lastName">Last Name</label>
+  <input type="text" th:field="*{lastName}" id="lastName" required="required"/>
+  <label for="dayOfBirth">Day of Birth</label>
+  <input type="date" th:field="*{dayOfBirth}" id="dayOfBirth" required="required"/>
+  <label for="position">Position</label>
+  <input type="text" th:field="*{position}" id="position" required="required"/>
+  <label for="party">Party</label>
+  <select th:field="*{party.id}" id="party" required="required">
+    <option value="" selected>None</option>
+    <option th:each="funny : ${funnyPartyNames}" th:value="${funny.id}" th:text="${funny.name}"></option>
+  </select>
+  <div th:if="${#fields.hasErrors('party')}" th:errors="*{party}" class="error"></div>
+
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>

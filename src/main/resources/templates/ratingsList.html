@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>promisesList</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Rate</th>
+        <th>Comment</th>
+        <th>Assessment Date</th>
+        <th>User</th>
+        <th>Promise</th>
+
+    </tr>
+    <tr th:each="rating : ${ratingsAll}">
+        <td th:text="${rating.rate}"></td>
+        <td th:text="${rating.comment}"></td>
+        <td th:text="${rating.assessmentDate}"></td>
+        <td th:text="${rating.user.fullName()}"></td>
+        <td th:text="${rating.promise.titleOfPromise}"></td>
+        <td>
+            <a th:href="@{/{rating.id}(id=${rating.id})}">
+                <button type="button">Details</button>
+            </a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

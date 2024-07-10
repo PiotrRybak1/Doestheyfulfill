@@ -7,20 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.doestheyfulfill.domain.Politician;
-import pl.coderslab.doestheyfulfill.repository.PoliticianRepository;
-import pl.coderslab.doestheyfulfill.service.PoliticalService;
+import pl.coderslab.doestheyfulfill.service.PoliticianService;
 
 @Slf4j
 @Controller
 @RequestMapping("/hello")
 @RequiredArgsConstructor
 public class Hello {
-    private final PoliticalService politicalService;
+    private final PoliticianService politicianService;
 
     @GetMapping("")
     @ResponseBody
     public String hello(){
-        politicalService.add(new Politician());
+        politicianService.add(new Politician());
         return "Hello";
     }
 }

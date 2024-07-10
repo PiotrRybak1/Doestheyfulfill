@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class PoliticalService {
+public class PoliticianService {
     private final PoliticianRepository politicsRepository;
 
     public void add(Politician politician){

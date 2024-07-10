@@ -42,4 +42,7 @@ public class User {
         this.password = password;
         this.userRole = userRole;
     }
+    public String fullName(){
+        return firsName +" " +lastName;
+    }
 }
