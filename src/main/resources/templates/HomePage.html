@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 </head>
 <body>
-<div th:insert="navLinks :: navLinks"></div>
+
 <table>
     <tr>
         <th>Title of Promise</th>
@@ -13,20 +13,14 @@
         <th>Date of the Promise</th>
         <th>Promise Status</th>
         <th>A Politician Making a Promise</th>
-        <th>Details</th>
 
     </tr>
-    <tr th:each="promise : ${promisesAll}">
+    <tr th:each="promise : ${latestPromise}">
         <td th:text="${promise.titleOfPromise}"></td>
         <td th:text="${promise.descriptionOfThePromise}"></td>
         <td th:text="${promise.dateOfThePromise}"></td>
         <td th:text="${promise.promiseStatus.name}"></td>
         <td th:text="${promise.politician.fullName()}"></td>
-        <td>
-            <a th:href="@{/rating/add/{id}(id=${promise.id})}">
-                <button type="button">Rating</button>
-            </a>
-        </td>
     </tr>
 </table>
 </body>

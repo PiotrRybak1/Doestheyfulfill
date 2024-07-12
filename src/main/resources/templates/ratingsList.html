@@ -19,13 +19,8 @@
         <td th:text="${rating.rate}"></td>
         <td th:text="${rating.comment}"></td>
         <td th:text="${rating.assessmentDate}"></td>
-        <td th:text="${rating.user.fullName()}"></td>
+        <td th:text="${rating.user.getUserName()}"></td>
         <td th:text="${rating.promise.titleOfPromise}"></td>
-        <td>
-            <a th:href="@{/{rating.id}(id=${rating.id})}">
-                <button type="button">Details</button>
-            </a>
-        </td>
     </tr>
 </table>
 </body>

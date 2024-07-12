@@ -6,23 +6,12 @@
 </head>
 <body>
 <form th:action="@{/rating/add}" th:object="${addRating}" method="post">
+    <input type="hidden" th:field="*{promise.id}" />
+    <input type="hidden" th:field="*{user.id}" />
     <label for="rate">rate</label>
     <input type="number" th:field="*{rate}" id="rate" required="required"/>
     <label for="comment">Description of Promise</label>
     <textarea th:field="*{comment}" id="comment" required="required"></textarea>
-    <label for="assessmentDate">Assessment Date</label>
-    <input type="datetime-local" th:field="*{assessmentDate}" id="assessmentDate" required="required"/>
-    <label for="user">user</label>
-    <select th:field="*{promiseStatus.id}" id="user" required="required">
-        <option th:each="status : ${promiseStatusModel}" th:value="${status.id}" th:text="${status.name}"></option>
-    </select>
-    <div th:if="${#fields.hasErrors('promiseStatus')}" th:errors="*{promiseStatus}" class="error"></div>
-
-    <label for="politician">Politician</label>
-    <select th:field="*{politician.id}" id="politician" required="required">
-        <option th:each="polit : ${politicianModel}" th:value="${polit.id}" th:text="${polit.fullName()}"></option>
-    </select>
-    <div th:if="${#fields.hasErrors('politician')}" th:errors="*{politician}" class="error"></div>
     <button type="submit">Submit</button>
 </form>
 </body>

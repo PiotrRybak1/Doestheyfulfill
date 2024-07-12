@@ -55,7 +55,6 @@ public class PoliticianController {
         } else return "redirect:/politician/all";
 
     }
-
     @PostMapping("/edit")
     public String editParty(@ModelAttribute("politicianToEdit") @Valid Politician politician, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

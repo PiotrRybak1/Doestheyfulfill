@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Rating Form</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+<form th:action="@{/rating/edit}" th:object="${ratingForEdit}" method="post">
+  <input type="hidden" th:field="*{id}" />
+  <label for="rate">rate</label>
+  <input type="number" th:field="*{rate}" id="rate" required="required"/>
+  <label for="comment">Description of Promise</label>
+  <textarea th:field="*{comment}" id="comment" required="required"></textarea>
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>

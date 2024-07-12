@@ -1,6 +1,8 @@
 package pl.coderslab.doestheyfulfill.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import pl.coderslab.doestheyfulfill.domain.PoliticalParty;
@@ -37,6 +39,9 @@ public class PromiseService {
     public void update(Promise promise) {
         promiseRepository.save(promise);
 
+    }
+    public List<Promise> getSample(int numberOfPromise){
+        return promiseRepository.findAllByDate(PageRequest.of(0,numberOfPromise));
     }
 
 }

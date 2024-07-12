@@ -15,7 +15,7 @@
         <th>Position</th>
         <th>Details</th>
     </tr>
-    <tr th:each="politician : ${allPoliticians}">
+    <tr th:each="politician : ${politBelog}">
         <td th:text="${politician.firstName}"></td>
         <td th:text="${politician.lastName}"></td>
         <td th:text="${politician.dayOfBirth}"></td>

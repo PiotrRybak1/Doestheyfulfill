@@ -31,7 +31,7 @@ public class PromiseController {
         model.addAttribute("promisesAll", promiseService.getPromises());
         return "promisesList";
     }
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public String getDetails(@PathVariable Long id, Model model){
         Optional<Promise> optionalPromise =promiseService.get(id);
         if(optionalPromise.isPresent()){
@@ -73,11 +73,13 @@ public class PromiseController {
             promiseService.update(promise);
             return "redirect:/promise/all";
     }
-    @GetMapping("/remove/{id}")
+    @DeleteMapping("/remove/{id}")
     public String removePromise(@PathVariable Long id){
         promiseService.delete(id);
         return "redirect:/promise/all";
     }
+
+
     @ModelAttribute("promiseStatusModel")
     public List<PromiseStatus> promiseStatusForPromise(){
         return  promisesStatusService.all();

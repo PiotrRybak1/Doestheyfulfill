@@ -5,9 +5,11 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,30 +21,26 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Size(max =256)
-    private String firsName;
-    @Size(max =256)
-    private String lastName;
-    private LocalDate dateOfBirth;
+    @Size(max = 256)
+    private String userName;
     @Email
     private String email;
     //it will be own annotation
     private String password;
-    //admin or user
-    private boolean userRole;
+    private boolean enabled;
     @OneToMany(mappedBy = "user")
     @ToString.Exclude
-    private Set<Rating > rating = new HashSet<>();
+    private Set<Rating> rating = new HashSet<>();
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ToString.Exclude
+    private Set<Role> roles = new HashSet<>();
 
-    public User(String firsName, String lastName, int year, int month, int day, String email, String password, boolean userRole) {
-        this.firsName = firsName;
-        this.lastName = lastName;
-        this.dateOfBirth = LocalDate.of(year, month, day);
+    public User(String userName, String email, String password, boolean enabled) {
+        this.userName = userName;
         this.email = email;
         this.password = password;
-        this.userRole = userRole;
+        this.enabled = enabled;
     }
-    public String fullName(){
-        return firsName +" " +lastName;
-    }
+
 }
+

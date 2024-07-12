@@ -9,11 +9,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import pl.coderslab.doestheyfulfill.domain.PoliticalParty;
+import pl.coderslab.doestheyfulfill.domain.Politician;
 import pl.coderslab.doestheyfulfill.service.PoliticalPartyService;
+import pl.coderslab.doestheyfulfill.service.PoliticianService;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Slf4j
 @Controller
@@ -21,6 +24,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PoliticalPartyController {
     private final PoliticalPartyService politicalPartyService;
+    private final PoliticianService politicianService;
 
 
     @GetMapping("/all")
@@ -36,7 +40,6 @@ public class PoliticalPartyController {
     }
 
     @PostMapping("/add")
-
     public String addParty(@Valid PoliticalParty party, BindingResult result) {
         if (result.hasErrors()) {
             return "politicalPartyForm";
@@ -69,6 +72,12 @@ public class PoliticalPartyController {
     public String removeParty(@PathVariable Long id) {
         politicalPartyService.delete(id);
         return "redirect:/politicalParty/all";
+    }
+    @GetMapping("/politicianBelong/{id}")
+    public String politicians(@PathVariable Long id, Model model){
+        Set<Politician> politBelong = politicianService.belongPolitician(id);
+        model.addAttribute("politBelog", politBelong);
+        return "belongPoliticians";
     }
 
     @ModelAttribute("funnyPartyNames")

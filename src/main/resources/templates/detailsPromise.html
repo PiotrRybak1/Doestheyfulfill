@@ -13,6 +13,7 @@
         <th>Date of the Promise</th>
         <th>Promise Status</th>
         <th>A Politician Making a Promise</th>
+        <th>Rate</th>
 
     </tr>
         <td th:text="${promiseDetails.titleOfPromise}"></td>
@@ -20,8 +21,8 @@
         <td th:text="${promiseDetails.dateOfThePromise}"></td>
         <td th:text="${promiseDetails.promiseStatus.name}"></td>
         <td>
-            <a th:href="@{/edit/(id=${promiseDetails.id})}">
-                <button type="button">Edit</button>
+            <a th:href="@{/rating/add/{id}(id=${promiseDetails.id})}">
+                <button type="button">Rate</button>
             </a>
         </td>
     </tr>
