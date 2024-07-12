@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
 </head>
 <body>
+<div th:insert="navLinks :: navLinks"></div>
 <form th:action="@{/rating/edit}" th:object="${ratingForEdit}" method="post">
   <input type="hidden" th:field="*{id}" />
   <label for="rate">rate</label>

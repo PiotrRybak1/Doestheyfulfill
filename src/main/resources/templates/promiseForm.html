@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
 </head>
 <body>
+<div th:insert="navLinks :: navLinks"></div>
 <form th:action="@{/promise/add}" th:object="${addPromise}" method="post">
     <label for="titleOfPromise">Title for Promise</label>
     <input type="text" th:field="*{titleOfPromise}" id="titleOfPromise" required="required"/>

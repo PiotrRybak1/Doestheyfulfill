@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
 </head>
 <body>
+<div th:insert="navLinks :: navLinks"></div>
 <form th:action="@{/rating/add}" th:object="${addRating}" method="post">
     <input type="hidden" th:field="*{promise.id}" />
     <input type="hidden" th:field="*{user.id}" />

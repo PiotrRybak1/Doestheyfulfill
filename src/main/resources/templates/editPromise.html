@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
 </head>
 <body>
+<div th:insert="navLinks :: navLinks"></div>
 <form th:action="@{/promise/edit}" th:object="${promiseForEdit}" method="post">
     <input type="hidden" th:field="*{id}"/>
     <label for="titleOfPromise">Title of Promise</label>

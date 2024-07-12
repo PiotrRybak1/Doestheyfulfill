@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
 </head>
 <body>
+<div th:insert="navLinks :: navLinks"></div>
 <table>
     <tr>
         <th>Name</th>
@@ -14,17 +15,17 @@
         <td th:text="${party.name}"></td>
         <td th:text="${party.description}"></td>
         <td>
-            <a th:href="@{/politicalParty/politcianBelong/{id}(id=${party.id})}">
+            <a th:href="@{/politicalParty/politicianBelong/{id}(id=${party.id})}">
                 <button type="button">Details</button>
             </a>
         </td>
         <td>
-            <a th:href="@{/party/edit/{id}(id=${party.id})}">
+            <a th:href="@{/politicalParty/edit/{id}(id=${party.id})}">
                 <button type="button">Edit</button>
             </a>
         </td>
         <td>
-            <a th:href="@{/party/remove/{id}(id=${party.id})}">
+            <a th:href="@{/politicalParty/remove/{id}(id=${party.id})}">
                 <button type="button">Delete</button>
             </a>
     </tr>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
 </head>
 <body>
+<div th:insert="navLinks :: navLinks"></div>
 
 <form th:action="@{/politicalParty/edit}" th:object="${partyToEdit}" method="post">
     <input type="hidden" th:field="*{id}"/>

@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
 </head>
 <body>
-
+<div th:insert="navLinks :: navLinks"></div>
+<a th:href="@{/register}">
+    <button type="button">Register</button>
+</a>
 <table>
     <tr>
         <th>Title of Promise</th>

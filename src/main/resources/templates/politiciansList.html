@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
 </head>
 <body>
-
+<div th:insert="navLinks :: navLinks"></div>
 <table>
     <tr>
         <th>First Name</th>
@@ -32,8 +32,13 @@
             </a>
         </td>
         <td>
-            <a th:href="@{/politician/delete/{id}(id=${politician.id})}">
+            <a th:href="@{/politician/remove/{id}(id=${politician.id})}">
                 <button type="button">Delete</button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/promise/add}">
+                <button type="button">Details</button>
             </a>
         </td>
     </tr>
