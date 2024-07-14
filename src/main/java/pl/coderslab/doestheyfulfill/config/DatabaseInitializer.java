@@ -9,7 +9,7 @@ import pl.coderslab.doestheyfulfill.repository.PromiseStatusRepository;
 @Configuration
 public class DatabaseInitializer {
 
-    @Bean
+    /*@Bean
     CommandLineRunner initDatabase(PromiseStatusRepository repository) {
         return args -> {
             repository.save(new PromiseStatus(PromiseStatus.Name.PROMISE_MADE));
@@ -17,6 +17,6 @@ public class DatabaseInitializer {
             repository.save(new PromiseStatus(PromiseStatus.Name.COMPLETED));
             repository.save(new PromiseStatus(PromiseStatus.Name.NOT_IMPLEMENTED));
         };
-    }
+    }*/
 }
 

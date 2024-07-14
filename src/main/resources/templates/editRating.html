@@ -8,6 +8,9 @@
 <div th:insert="navLinks :: navLinks"></div>
 <form th:action="@{/rating/edit}" th:object="${ratingForEdit}" method="post">
   <input type="hidden" th:field="*{id}" />
+  <input type="hidden" th:field="*{user}"/>
+  <input type="hidden" th:field="*{promise}"/>
+  <input type="hidden" th:field="*{assessmentDate}"/>
   <label for="rate">rate</label>
   <input type="number" th:field="*{rate}" id="rate" required="required"/>
   <label for="comment">Description of Promise</label>

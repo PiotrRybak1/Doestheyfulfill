@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import pl.coderslab.doestheyfulfill.domain.PoliticalParty;
+import pl.coderslab.doestheyfulfill.domain.Politician;
 import pl.coderslab.doestheyfulfill.domain.Promise;
 import pl.coderslab.doestheyfulfill.domain.PromiseStatus;
 import pl.coderslab.doestheyfulfill.repository.PoliticalPartyRepository;
@@ -14,6 +15,7 @@ import pl.coderslab.doestheyfulfill.repository.PromiseStatusRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -42,6 +44,9 @@ public class PromiseService {
     }
     public List<Promise> getSample(int numberOfPromise){
         return promiseRepository.findAllByDate(PageRequest.of(0,numberOfPromise));
+    }
+    public Set<Promise> politicianPromises(Politician politician){
+        return promiseRepository.findAllByPolitician(politician);
     }
 
 }

@@ -22,18 +22,13 @@
         <td th:text="${politician.party.name}"></td>
         <td th:text="${politician.position}"></td>
         <td>
-            <a th:href="@{/promise/{id}(id=${politician.id})}">
+            <a th:href="@{/promise/politician/{id}(id=${politician.id})}">
                 <button type="button">Details</button>
             </a>
         </td>
         <td>
             <a th:href="@{/politician/edit/{id}(id=${politician.id})}">
                 <button type="button">Edit</button>
-            </a>
-        </td>
-        <td>
-            <a th:href="@{/politician/delete/{id}(id=${politician.id})}">
-                <button type="button">Delete</button>
             </a>
         </td>
     </tr>

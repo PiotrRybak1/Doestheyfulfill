@@ -10,9 +10,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.doestheyfulfill.domain.MyUserDetailsService;
+import pl.coderslab.doestheyfulfill.domain.Rating;
 import pl.coderslab.doestheyfulfill.domain.User;
 import pl.coderslab.doestheyfulfill.repository.RoleRepository;
+import pl.coderslab.doestheyfulfill.service.RatingService;
 import pl.coderslab.doestheyfulfill.service.UserService;
+
+import java.util.Set;
 
 @Slf4j
 @Controller
@@ -21,6 +25,7 @@ public class UserController {
     private final MyUserDetailsService userDetailsService;
     private final UserService userService;
     private final RoleRepository roleRepository;
+    private final RatingService ratingService;
 
     @GetMapping("/register")
     public String register(Model model) {
@@ -42,10 +47,15 @@ public class UserController {
     public String login() {
         return "login";
     }
-    @GetMapping("/logout-success")
-    public String logout(){
-        return "logout";
+
+    @GetMapping("/show")
+    public String userRatings(Model model) {
+        Set<Rating> currentUserRatings = ratingService.userRatings(userService.getCurrentUser());
+        model.addAttribute("currentUserRatings", currentUserRatings);
+        return "currentUserRatings";
+
     }
+
 }
 
 

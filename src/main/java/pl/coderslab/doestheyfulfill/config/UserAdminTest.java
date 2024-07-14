@@ -7,7 +7,7 @@ import pl.coderslab.doestheyfulfill.domain.Role;
 import pl.coderslab.doestheyfulfill.repository.RoleRepository;
 import pl.coderslab.doestheyfulfill.service.UserService;
 
-@Component
+/*@Component
 @RequiredArgsConstructor
 public class UserAdminTest implements CommandLineRunner {
 
@@ -32,5 +32,5 @@ public class UserAdminTest implements CommandLineRunner {
         userService.registerDefaultUser("user@gmail.com", "user", "password");
         userService.registerAdmin("admin@gmail.com", "admin", "adminpassword");
     }
-}
+}*/
 

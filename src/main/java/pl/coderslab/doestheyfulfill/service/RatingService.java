@@ -4,10 +4,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.coderslab.doestheyfulfill.domain.PoliticalParty;
 import pl.coderslab.doestheyfulfill.domain.Rating;
+import pl.coderslab.doestheyfulfill.domain.User;
 import pl.coderslab.doestheyfulfill.repository.RatingRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+
 @Service
 @RequiredArgsConstructor
 public class RatingService {
@@ -30,6 +33,9 @@ public class RatingService {
     public void update(Rating rating) {
         ratingRepository.save(rating);
 
+    }
+    public Set<Rating> userRatings (User user){
+        return ratingRepository.findAllByUser(user);
     }
 }
 

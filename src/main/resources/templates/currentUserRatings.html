@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>promisesList</title>
+    <title>User Raings</title>
     <meta charset="UTF-8">
 </head>
 <body>
@@ -15,14 +15,17 @@
         <th>Promise</th>
 
     </tr>
-    <tr th:each="rating : ${ratingsAll}">
+    <tr th:each="rating : ${currentUserRatings}">
         <td th:text="${rating.rate}"></td>
         <td th:text="${rating.comment}"></td>
         <td th:text="${rating.assessmentDate}"></td>
         <td th:text="${rating.user.getUserName()}"></td>
         <td th:text="${rating.promise.titleOfPromise}"></td>
+        <td>
+            <a th:href="@{/rating/edit/{id}(id=${rating.id})}">Edit</a>
+            <a th:href="@{/rating/remove/{id}(id=${rating.id})}">Delete</a>
+        </td>
     </tr>
-
 </table>
 </body>
 </html>

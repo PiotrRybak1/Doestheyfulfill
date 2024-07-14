@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Promise Form</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+<div th:insert="navLinks :: navLinks"></div>
+<form th:action="@{/promise/addPolitician}" th:object="${promise2}" method="post">
+  <input type="hidden" th:field="*{politician.id}" />
+  <label for="titleOfPromise">Title for Promise</label>
+  <input type="text" th:field="*{titleOfPromise}" id="titleOfPromise" required="required"/>
+  <label for="descriptionOfThePromise">Description of Promise</label>
+  <textarea th:field="*{descriptionOfThePromise}" id="descriptionOfThePromise" required="required"></textarea>
+  <label for="dateOfThePromise">Date of Promise</label>
+  <input type="date" th:field="*{dateOfThePromise}" id="dateOfThePromise" required="required"/>
+  <label for="promiseStatus">Promise Status</label>
+  <select th:field="*{promiseStatus.id}" id="promiseStatus" required="required">
+    <option th:each="status : ${promiseStatusModel}" th:value="${status.id}" th:text="${status.name}"></option>
+  </select>
+  <div th:if="${#fields.hasErrors('promiseStatus')}" th:errors="*{promiseStatus}" class="error"></div>
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>
