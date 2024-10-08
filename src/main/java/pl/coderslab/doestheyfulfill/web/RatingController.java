@@ -30,9 +30,10 @@ public class RatingController {
         model.addAttribute("ratingsAll", ratingService.getRatings());
         return "ratingsList";
     }
+
     @GetMapping("/{id}")
     public String getDetails(@PathVariable Long id, Model model){
-        Optional<Rating> optionalRating =ratingService.get(id);
+        Optional<Rating> optionalRating = ratingService.get(id);
         if(optionalRating.isPresent()){
             model.addAttribute("ratingDetails", optionalRating.get());
             return "detailsRating";
@@ -56,7 +57,7 @@ public class RatingController {
     }
 
     @PostMapping("/add")
-    public String addRating( @Valid @ModelAttribute("addRating") Rating rating, BindingResult result) {
+    public String addRating(@Valid @ModelAttribute("addRating") Rating rating, BindingResult result) {
         if (result.hasErrors()) {
             return "ratingForm";
         }
@@ -65,7 +66,7 @@ public class RatingController {
     }
     @GetMapping("/edit/{id}")
     public String editPromise(@PathVariable Long id, Model model){
-        Optional<Rating> optionalRatingEdit =ratingService.get(id);
+        Optional<Rating> optionalRatingEdit = ratingService.get(id);
         if(optionalRatingEdit.isPresent()){
             model.addAttribute("ratingForEdit", optionalRatingEdit.get());
             return "editRating";

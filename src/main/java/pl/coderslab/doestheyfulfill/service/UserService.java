@@ -25,7 +25,7 @@ public class UserService {
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public void add(User user) {
+    public void add(User user){
         Role userRole = new Role();
         userRole.setName("ROLE_USER");
         roleRepository.save(userRole);

@@ -24,9 +24,10 @@ public class PromiseService {
     private final PromiseRepository promiseRepository;
 
 
-    public void add(Promise promise){
+    public void add(Promise promise) {
         promiseRepository.save(promise);
     }
+
     public List<Promise> getPromises() {
         return promiseRepository.findAll();
     }
@@ -38,14 +39,17 @@ public class PromiseService {
     public void delete(Long id) {
         promiseRepository.deleteById(id);
     }
+
     public void update(Promise promise) {
         promiseRepository.save(promise);
 
     }
-    public List<Promise> getSample(int numberOfPromise){
-        return promiseRepository.findAllByDate(PageRequest.of(0,numberOfPromise));
+
+    public List<Promise> getSample(int numberOfPromise) {
+        return promiseRepository.findAllByDate(PageRequest.of(0, numberOfPromise));
     }
-    public Set<Promise> politicianPromises(Politician politician){
+
+    public Set<Promise> politicianPromises(Politician politician) {
         return promiseRepository.findAllByPolitician(politician);
     }
 

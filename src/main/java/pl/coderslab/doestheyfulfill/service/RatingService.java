@@ -2,6 +2,7 @@ package pl.coderslab.doestheyfulfill.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.doestheyfulfill.domain.PoliticalParty;
 import pl.coderslab.doestheyfulfill.domain.Rating;
 import pl.coderslab.doestheyfulfill.domain.User;
@@ -12,6 +13,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class RatingService {
     private final RatingRepository ratingRepository;

@@ -3,9 +3,7 @@ package pl.coderslab.doestheyfulfill.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 @Getter

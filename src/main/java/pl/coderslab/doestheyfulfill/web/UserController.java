@@ -3,13 +3,11 @@ package pl.coderslab.doestheyfulfill.web;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.coderslab.doestheyfulfill.domain.MyUserDetailsService;
 import pl.coderslab.doestheyfulfill.domain.Rating;
 import pl.coderslab.doestheyfulfill.domain.User;
 import pl.coderslab.doestheyfulfill.repository.RoleRepository;
@@ -22,7 +20,6 @@ import java.util.Set;
 @Controller
 @RequiredArgsConstructor
 public class UserController {
-    private final MyUserDetailsService userDetailsService;
     private final UserService userService;
     private final RoleRepository roleRepository;
     private final RatingService ratingService;
